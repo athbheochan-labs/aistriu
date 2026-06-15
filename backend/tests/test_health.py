@@ -11,4 +11,4 @@ def test_health_check_returns_ok() -> None:
 def test_create_app_registers_health_route() -> None:
     app = create_app()
 
-    assert any(route.path == "/health" for route in app.routes)
+    assert "/health" in {getattr(route, "path", None) for route in app.routes}
