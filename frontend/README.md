@@ -32,6 +32,18 @@ npm run build
 npm run preview
 ```
 
+## Docker
+
+The root `compose.yml` can run the frontend with the backend and Valkey:
+
+```bash
+cd ..
+cp .env.example .env
+docker compose up --build
+```
+
+The frontend service is available at `http://localhost:5173`.
+
 ## Project Structure
 
 ```text
