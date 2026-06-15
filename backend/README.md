@@ -36,6 +36,17 @@ Configuration is loaded from environment variables and an optional `.env` file u
 | `APP_ENV` | `local` | Runtime environment name. |
 | `APP_DEBUG` | `false` | Enables debug mode in FastAPI. |
 | `CORS_ORIGINS` | `http://localhost:5173,http://127.0.0.1:5173` | Comma-separated allowed origins for the SvelteKit frontend. |
+| `VALKEY_URL` | `redis://localhost:6379/0` | Valkey connection URL. |
+
+## Docker
+
+The root `compose.yml` runs the backend with Valkey for local development:
+
+```bash
+cd ..
+cp .env.example .env
+docker compose up --build
+```
 
 ## Project Structure
 
