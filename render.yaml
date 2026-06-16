@@ -1,0 +1,42 @@
+services:
+  - type: web
+    name: aistriu-frontend
+    runtime: static
+    buildCommand: cd frontend && npm ci && npm run build
+    staticPublishPath: frontend/build
+    autoDeployTrigger: checksPass
+    domains:
+      - aistriu.athbheochan.irish
+    envVars:
+      - key: PUBLIC_API_BASE_URL
+        value: https://api.aistriu.athbheochan.irish
+    buildFilter:
+      paths:
+        - frontend/**
+        - render.yaml
+
+  - type: web
+    name: aistriu-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    healthCheckPath: /health
+    autoDeployTrigger: checksPass
+    domains:
+      - api.aistriu.athbheochan.irish
+    envVars:
+      - key: APP_NAME
+        value: Aistriu API
+      - key: APP_ENV
+        value: production
+      - key: APP_DEBUG
+        value: "false"
+      - key: CORS_ORIGINS
+        value: https://aistriu.athbheochan.irish
+      - key: VALKEY_URL
+        sync: false
+    buildFilter:
+      paths:
+        - backend/**
+        - render.yaml

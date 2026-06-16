@@ -21,8 +21,8 @@ class Settings(BaseSettings):
         default="http://localhost:5173,http://127.0.0.1:5173",
         validation_alias=AliasChoices("CORS_ORIGINS", "AISTRIU_CORS_ORIGINS"),
     )
-    valkey_url: str = Field(
-        default="redis://localhost:6379/0",
+    valkey_url: str | None = Field(
+        default=None,
         validation_alias=AliasChoices("VALKEY_URL", "AISTRIU_VALKEY_URL"),
     )
 
