@@ -56,3 +56,9 @@ Compose reads configuration from the root `.env` file.
 | `VALKEY_PORT` | `6379` | Host port for Valkey. |
 | `VALKEY_URL` | `redis://valkey:6379/0` | Valkey connection URL used inside Compose. |
 | `PUBLIC_API_BASE_URL` | `http://localhost:8000` | Browser-facing URL for the FastAPI backend. |
+
+## Deployment
+
+The SvelteKit frontend and FastAPI backend are configured for Render using the root `render.yaml` Blueprint.
+
+Deployment notes, environment variables, and Route 53 DNS steps are documented in `docs/deployment/render.md`.

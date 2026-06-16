@@ -36,7 +36,7 @@ Configuration is loaded from environment variables and an optional `.env` file u
 | `APP_ENV` | `local` | Runtime environment name. |
 | `APP_DEBUG` | `false` | Enables debug mode in FastAPI. |
 | `CORS_ORIGINS` | `http://localhost:5173,http://127.0.0.1:5173` | Comma-separated allowed origins for the SvelteKit frontend. |
-| `VALKEY_URL` | `redis://localhost:6379/0` | Valkey connection URL. |
+| `VALKEY_URL` | unset | Optional Valkey connection URL. |
 
 ## Docker
 
@@ -47,6 +47,10 @@ cd ..
 cp .env.example .env
 docker compose up --build
 ```
+
+## Render
+
+The production Docker entrypoint is configured in `backend/Dockerfile`. Render deployment is managed from the root `render.yaml` Blueprint.
 
 ## Project Structure
 

@@ -29,6 +29,7 @@ services:
       VALKEY_URL: ${VALKEY_URL:-redis://valkey:6379/0}
     ports:
       - "${BACKEND_PORT:-8000}:8000"
+    command: fastapi dev app/main.py --host 0.0.0.0 --port 8000
     volumes:
       - ./backend/app:/app/app
     depends_on:
