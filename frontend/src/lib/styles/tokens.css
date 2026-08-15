@@ -1,0 +1,59 @@
+:root {
+  color-scheme: light;
+
+  --al-colour-ink: #13201d;
+  --al-colour-ink-muted: #52645f;
+  --al-colour-surface: #fbfaf6;
+  --al-colour-surface-raised: #ffffff;
+  --al-colour-line: #dbe5df;
+  --al-colour-forest: #0d5f4f;
+  --al-colour-forest-strong: #08483c;
+  --al-colour-mint: #b9efd9;
+  --al-colour-copper: #b85f35;
+  --al-colour-copper-soft: #f4d2c1;
+
+  --al-font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --al-font-display: "Fraunces", Georgia, "Times New Roman", serif;
+
+  --al-space-1: 0.25rem;
+  --al-space-2: 0.5rem;
+  --al-space-3: 0.75rem;
+  --al-space-4: 1rem;
+  --al-space-6: 1.5rem;
+  --al-space-8: 2rem;
+  --al-space-12: 3rem;
+  --al-space-16: 4rem;
+
+  --al-radius-sm: 0.375rem;
+  --al-radius-md: 0.5rem;
+  --al-radius-lg: 0.75rem;
+
+  --al-shadow-sm: 0 1px 2px rgb(19 32 29 / 8%);
+  --al-shadow-md: 0 12px 30px rgb(19 32 29 / 12%);
+}
+
+html {
+  background: var(--al-colour-surface);
+  color: var(--al-colour-ink);
+  font-family: var(--al-font-sans);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}
+
+* {
+  box-sizing: border-box;
+}

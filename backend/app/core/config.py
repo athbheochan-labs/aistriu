@@ -21,6 +21,18 @@ class Settings(BaseSettings):
         default="http://localhost:5173,http://127.0.0.1:5173",
         validation_alias=AliasChoices("CORS_ORIGINS", "AISTRIU_CORS_ORIGINS"),
     )
+    valkey_url: str | None = Field(
+        default=None,
+        validation_alias=AliasChoices("VALKEY_URL", "AISTRIU_VALKEY_URL"),
+    )
+    weblate_api_key: str | None = Field(
+        default=None,
+        validation_alias=AliasChoices("WEBLATE_API_KEY", "AISTRIU_WEBLATE_API_KEY"),
+    )
+    weblate_base_url: str | None = Field(
+        default=None,
+        validation_alias=AliasChoices("WEBLATE_BASE_URL", "AISTRIU_WEBLATE_BASE_URL"),
+    )
 
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -32,7 +44,9 @@ class Settings(BaseSettings):
 
     @property
     def cors_origin_list(self) -> list[str]:
-        return [origin.strip() for origin in self.cors_origins.split(",") if origin.strip()]
+        return [
+            origin.strip() for origin in self.cors_origins.split(",") if origin.strip()
+        ]
 
 
 @lru_cache
