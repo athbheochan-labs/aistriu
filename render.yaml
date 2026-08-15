@@ -36,6 +36,10 @@ services:
         value: https://aistriu.athbheochan.irish
       - key: VALKEY_URL
         sync: false
+      - key: WEBLATE_BASE_URL
+        sync: false
+      - key: WEBLATE_API_KEY
+        sync: false
     buildFilter:
       paths:
         - backend/**

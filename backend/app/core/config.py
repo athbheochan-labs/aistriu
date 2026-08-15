@@ -25,6 +25,14 @@ class Settings(BaseSettings):
         default=None,
         validation_alias=AliasChoices("VALKEY_URL", "AISTRIU_VALKEY_URL"),
     )
+    weblate_api_key: str | None = Field(
+        default=None,
+        validation_alias=AliasChoices("WEBLATE_API_KEY", "AISTRIU_WEBLATE_API_KEY"),
+    )
+    weblate_base_url: str | None = Field(
+        default=None,
+        validation_alias=AliasChoices("WEBLATE_BASE_URL", "AISTRIU_WEBLATE_BASE_URL"),
+    )
 
     model_config = SettingsConfigDict(
         env_file=".env",
@@ -37,9 +45,7 @@ class Settings(BaseSettings):
     @property
     def cors_origin_list(self) -> list[str]:
         return [
-            origin.strip()
-            for origin in self.cors_origins.split(",")
-            if origin.strip()
+            origin.strip() for origin in self.cors_origins.split(",") if origin.strip()
         ]
 
 
